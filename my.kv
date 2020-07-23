@@ -1,0 +1,67 @@
+WindowManager:
+	MainWindow:
+	TestWindow:
+	
+<MainWindow>:
+	name:"main"
+	GridLayout:
+		cols:1
+		
+		GridLayout:
+			cols:2
+			Label:
+				text:"Full Name:"
+			TextInput:
+			    id:passw
+				multiline:False
+				
+		GridLayout:
+		    cols:2
+			Label:
+			    text:"Roll No."
+			TextInput:
+			    id:roll
+				multiline:False
+				
+		Button:
+		    text:"Submit"
+			id:submit
+			size_hint:0.2,0.2
+			on_press:on_start()
+			on_release:
+			    app.root.current="test"
+		        root.manager.transition.direction="left"
+				
+	
+<TestWindow>:
+    name: "test"
+	lbl:time
+	BoxLayout:
+		padding:5
+		Image:
+			size_hint:1,1
+			keep_ratio:False
+			allow_stretch:True
+			source:"Quiz I - 2017-answers_page-0001.jpg"
+			width:100
+			
+	GridLayout:	
+        orientation:'horizontal'	
+		Label:
+			id: time
+		    text: '[b]00[/b]:00:00'
+			color:(0,0,0,1)
+		    size_hint:0.8,0.25
+			pos: 10,520
+		    font_size:20
+		    markup: True
+			
+		
+    Button:
+	    text:"Exit"
+	    size_hint:[None,None]
+		size:[45,30]
+		on_release:
+            app.root.current="main"
+		    root.manager.transition.direction="right"		
+				
